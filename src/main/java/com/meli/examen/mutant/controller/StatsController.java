@@ -17,11 +17,19 @@ public class StatsController {
 	@Autowired
 	private DnaService dnaService;
 	
+	/**
+	 * Devuelve un json con la información de la cantidad
+	 * de humanos y mutantes en la base, y el ratio
+	 */
 	@RequestMapping("/stats")
 	public StatsDTO getStats() {
 		return statsService.getStats();
 	}
 	
+	/**
+	 * Permite borrar los registros actuales para reiniciar
+	 * el ejercicio.
+	 */
 	@RequestMapping(method=RequestMethod.DELETE,value="/stats")
 	public void deleteAllData() {
 		dnaService.deleteAllDna();

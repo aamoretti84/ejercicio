@@ -18,11 +18,21 @@ public class StatsService {
 	public StatsService() {
 		
 	}
-		
+	
+	/**
+	 * Recupera todos los ADN de la base y devuelve las estadísticas
+	 * @return
+	 */
 	public StatsDTO getStats() {
 		return processStatistics(dnaService.getAllDna());
 	}
 
+	/**
+	 * Cuenta la cantidad de humanos y mutantes y devuelve
+	 * el ratio
+	 * @param dnaBank
+	 * @return
+	 */
 	private StatsDTO processStatistics(List<DnaDTO> dnaBank) {
 		
 		long mutantCount = 0;
@@ -43,6 +53,13 @@ public class StatsService {
 		
 	}
 
+	/**
+	 * Calcula el ratio en base a los totales de adn humano y mutante.
+	 * Si no existen registros humanos, el ratio es nulo (indefinido)
+	 * @param mutantCount
+	 * @param humanCount
+	 * @return
+	 */
 	private BigDecimal calculateRatio(long mutantCount, long humanCount) {
 		
 		BigDecimal ratio = null;

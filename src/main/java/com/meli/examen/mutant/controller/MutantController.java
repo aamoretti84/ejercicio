@@ -20,6 +20,16 @@ public class MutantController {
 	private DnaService dnaService;
 	private final Pattern regExPattern = Pattern.compile("^[ACGT]+$");
 
+	/**
+	 * Devuelve:
+	 * 	200-OK: Si el adn ingresado es mutante
+	 *  403-Forbidden: Si el adn ingresado es humano
+	 *  400-Bad Request: Si el adn ingresado no es una matriz NxN
+	 *  
+	 * Si el adn es correcto se almacena en la base de datos
+	 * @param dna
+	 * @return
+	 */
 	@RequestMapping(method=RequestMethod.POST, value = "/mutant")
 	public ResponseEntity<String> checkIfMutantAndSave(@RequestBody DnaDTO dna) {
 		
@@ -49,6 +59,11 @@ public class MutantController {
 		this.dnaService = dnaAnalizer;
 	}
 
+	/**
+	 * Verifica si el array de adn es correcto: no nulo, no vacío, no NxN
+	 * @param dna
+	 * @return
+	 */
 	private boolean isValidDNA(String[] dna) {
 		
 		if (dna == null || dna.length == 0 || dna.length != dna[0].length()) {
