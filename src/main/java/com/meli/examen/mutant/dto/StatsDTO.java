@@ -4,9 +4,9 @@ import java.math.BigDecimal;
 
 public class StatsDTO {
 	
-	long count_mutant_dna;
-	long count_human_dna;
-	BigDecimal ratio;
+	private long count_mutant_dna;
+	private long count_human_dna;
+	private BigDecimal ratio;
 		
 	public StatsDTO(long count_mutant_dna, long count_human_dna, BigDecimal ratio) {
 		super();
