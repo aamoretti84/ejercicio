@@ -1,6 +1,10 @@
 # ejercicio
 
-Para ejecutar el programa se deben descargar las dependencias, correr MutantApp.java y acceder a través de localhost:8080
+Para ejecutar el programa se deben clonar el repositorio y ejecutar:
+
+mvn spring-boot:run
+
+Acceder a través de localhost:8080
 
 Lista de recursos:
 
